@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B1F3A">
+<title>Hệ thức lượng trong tam giác vuông</title>
+<style>
+:root{color-scheme:light;--navy:#0b1f3a;--blue:#2563eb;--cyan:#38bdf8;--bg:#eff6ff;--ink:#162d4d;--muted:#526780;--line:#d7e4f3;--green:#086b47;--red:#b42336}
+*{box-sizing:border-box}body{margin:0;font:16px/1.65 "Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}button,input{font:inherit;touch-action:manipulation}button{cursor:pointer;min-height:46px;border-radius:12px;border:1px solid var(--line);background:white;color:var(--ink);padding:10px 18px;font-weight:650;transition:background .18s,transform .18s}button:disabled{cursor:not-allowed;opacity:.5}button:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #0284c7;outline-offset:4px}button:not(:disabled):hover{background:#e7f0ff}button:not(:disabled):active{transform:translateY(1px)}[hidden]{display:none!important}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(30px,3.8vw,48px);line-height:1.22;letter-spacing:-1.1px;margin-bottom:23px}h2{font-size:24px;line-height:1.35}h3{font-size:18px}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.top{background:var(--navy);color:white;border-bottom:3px solid var(--cyan)}.brand{min-height:82px;display:flex;align-items:center;gap:14px}.mark{height:44px;width:44px;flex:none;border:1px solid #6e9fcc;border-radius:12px;display:grid;place-items:center;color:var(--cyan)}.brand strong{font-size:13px;letter-spacing:.7px}.brand small{display:block;color:#c2d5ec;font-size:12px}.top-label{margin-left:auto;color:#bfdbfe;font-size:12px;border:1px solid #436080;padding:5px 12px;border-radius:99px;white-space:nowrap}main{padding:32px 0 12px}.resource{background:white;border:1px solid var(--line);border-radius:12px;padding:11px 16px;margin-bottom:22px;display:flex;gap:12px;align-items:center;font-size:14px}.resource .dot{width:8px;height:8px;border-radius:50%;background:#0284c7;flex:none}.resource.error{color:var(--red);border-color:#efc0c8}.resource.error .dot{background:var(--red)}.resource button{margin-left:auto;white-space:nowrap;font-size:13px}.intro{display:grid;grid-template-columns:1.15fr 1fr;gap:45px;align-items:start}.eyebrow{color:#1d4ed8;font-size:12px;font-weight:750;letter-spacing:1.8px;text-transform:uppercase;margin:8px 0 18px}.lead{color:var(--muted);max-width:550px}.facts{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}.fact{padding:13px 20px;border-left:3px solid var(--blue);background:#ffffffb3;border-radius:0 12px 12px 0}.fact strong{display:block;font-size:25px;color:var(--navy);line-height:1.3}.fact span{font-size:12px;color:var(--muted)}.card{border:1px solid var(--line);background:white;border-radius:22px;box-shadow:0 12px 40px #19366309}.setup{padding:28px}.setup h2{margin-bottom:5px}.subtle{color:var(--muted);font-size:14px}.field{margin-top:18px}.field label{display:block;font-size:14px;font-weight:650;margin-bottom:6px}.field input{width:100%;min-height:48px;padding:11px 13px;border:1px solid #bacde3;border-radius:10px;color:var(--ink);background:#fbfdff}.modes{border:0;padding:0;margin:22px 0 16px}.modes legend{font-size:14px;font-weight:650;margin-bottom:8px}.mode{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--line);border-radius:12px;margin:8px 0;cursor:pointer}.mode:has(input:checked){border-color:var(--blue);background:#eff6ff}.mode input{accent-color:var(--blue);margin-top:6px;flex:none}.mode strong,.mode small{display:block}.mode strong{font-size:14px}.mode small{font-size:12px;color:var(--muted)}.primary{background:var(--blue);color:white;border-color:var(--blue)}.primary:not(:disabled):hover{background:#174cc2}.wide{width:100%}.privacy{font-size:12px;color:var(--muted);margin:14px 0 0}.instructions{padding:22px 25px;margin-top:24px;background:#e3efff;border-radius:16px;font-size:14px}.instructions h3{margin-bottom:8px}.instructions ol{padding-left:20px;margin:0}.instructions li+li{margin-top:7px}.teacher{margin-top:22px;font-size:13px;font-weight:650;color:#395372}.math-art{height:96px;margin-top:25px;overflow:hidden;border-radius:16px;background-color:#dfedff;background-image:linear-gradient(#b6cff34a 1px,transparent 1px),linear-gradient(90deg,#b6cff34a 1px,transparent 1px);background-size:22px 22px}.math-art svg{width:100%;height:100%}.testbar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 22px;margin-bottom:22px;background:#ffffffed;backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:18px}.testbar h2{font-size:16px;margin:0;max-width:650px}.person{font-size:13px;color:var(--muted);overflow-wrap:anywhere}.timer{flex:none;min-width:125px;text-align:center;background:#e9f2ff;border-radius:12px;padding:6px 14px}.timer strong{display:block;font-size:27px;line-height:1.15;font-variant-numeric:tabular-nums;color:var(--navy)}.timer span{font-size:11px;font-weight:650}.timer.warning{background:#fff0ec;color:var(--red)}.timer.warning strong{color:var(--red)}.quiz-grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:22px;align-items:start}.question-card{padding:30px;min-width:0}.question-meta{display:flex;justify-content:space-between;gap:8px;color:var(--blue);font-size:12px;font-weight:750;letter-spacing:.7px;margin-bottom:18px}.question-card fieldset{border:0;min-width:0;margin:0;padding:0}.question-card legend{float:left;width:100%;font-size:20px;line-height:1.65;font-weight:650;margin-bottom:23px;overflow-x:auto;padding:0 0 5px}.choices{clear:both;display:grid;gap:12px}.choice{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:14px 16px;border-radius:13px;cursor:pointer;min-height:62px;transition:border-color .2s,background .2s}.choice:hover{border-color:#88adf9;background:#f7faff}.choice:has(input:checked){border-color:var(--blue);background:#eff6ff;box-shadow:0 0 0 1px var(--blue)}.choice:has(input:disabled){cursor:default}.choice input{accent-color:var(--blue);width:18px;height:18px;flex:none}.letter{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#eaf0f7;color:#405675;font-size:13px;font-weight:750;flex:none}.choice:has(input:checked) .letter{background:var(--blue);color:white}.choice-text{min-width:0;overflow-x:auto;padding:3px 0}.choice.correct{border-color:#6dbb95;background:#f0fbf5}.choice.wrong{border-color:#e5a8b0;background:#fff3f4}.answer-mark{font-size:12px;margin-left:auto;flex:none;font-weight:700}.choice.correct .answer-mark{color:var(--green)}.choice.wrong .answer-mark{color:var(--red)}.q-actions{display:flex;gap:12px;justify-content:space-between;margin-top:22px;flex-wrap:wrap}.practice-check{margin-top:20px}.rail{padding:22px}.rail h3{margin-bottom:10px}.progress-line{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:7px}progress{width:100%;height:8px;border:0;border-radius:10px;overflow:hidden;background:#e4edf9;accent-color:var(--blue)}progress::-webkit-progress-bar{background:#e4edf9}progress::-webkit-progress-value{background:var(--blue)}.numbers{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:20px 0 15px}.numbers button{padding:0;min-height:39px;border-radius:9px;font-size:14px}.numbers button.answered{background:#dbeafe;color:#1e40af;border-color:#bfdbfe}.numbers button.current{outline:2px solid var(--blue);outline-offset:2px}.legend{font-size:12px;color:var(--muted);line-height:2}.legend i{display:inline-block;width:9px;height:9px;border:1px solid #abc1df;margin-right:5px;border-radius:2px}.legend .fill{background:#93c5fd}.legend .outline{border:2px solid var(--blue)}.mode-note{margin-top:18px;padding:13px;border-radius:11px;background:#f0f6ff;font-size:12px;color:#3f5878}.submit-row{display:flex;justify-content:flex-end;margin-top:22px}.feedback{margin-top:22px;padding:19px;border:1px solid var(--line);background:#f7faff;border-radius:14px;font-size:14px}.feedback h3{margin-bottom:9px}.feedback p,.feedback li{overflow-x:auto}.feedback ul{list-style:none;margin:15px 0 0;padding:0}.feedback li{padding:9px 0;border-top:1px solid var(--line)}.feedback li strong{margin-right:5px}.ok{color:var(--green)}.bad{color:var(--red)}.feedback .origin{margin:10px 0 0;font-size:11px;color:var(--muted)}.result-hero{display:flex;gap:30px;align-items:center;padding:30px;background:linear-gradient(120deg,#0b1f3a,#17458a);color:white}.score{flex:none;width:150px;height:150px;border-radius:50%;border:6px solid #38bdf8;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#ffffff09}.score strong{font-size:43px;line-height:1.1;font-variant-numeric:tabular-nums}.score span{font-size:13px;color:#b9d9fc}.result-hero .eyebrow{color:#7dd3fc;margin-top:0}.result-hero h1{font-size:30px;letter-spacing:-.5px;margin-bottom:10px}.result-hero p{margin-bottom:5px;color:#d5e4fa}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:22px 0}.stat{padding:18px;background:white;border:1px solid var(--line);border-radius:14px;text-align:center}.stat strong{display:block;font-size:23px}.stat span{font-size:12px;color:var(--muted)}.results-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:24px 0 18px}.review{padding:25px;margin-bottom:16px}.review h3{font-size:17px;overflow-x:auto}.status-pill{display:inline-block;border-radius:99px;padding:3px 11px;font-size:12px;font-weight:700;margin-bottom:12px;background:#edf2f8}.status-pill.ok{background:#e7f6ed}.status-pill.bad{background:#ffebee}.answer-line{font-size:14px;overflow-x:auto;margin-bottom:7px}details summary{cursor:pointer;color:#1d4ed8;padding:12px 0;font-weight:650;font-size:14px}details .feedback{margin-top:2px}footer{padding:28px 0 22px;text-align:center;font-size:12px;color:var(--muted);overflow-wrap:anywhere}footer strong{display:block}.toast{padding:12px 16px;border:1px solid #e8c480;background:#fff8e8;border-radius:12px;margin-bottom:16px;font-size:14px}dialog{width:min(440px,calc(100% - 32px));border:1px solid var(--line);border-radius:20px;padding:26px;color:var(--ink);box-shadow:0 24px 80px #00132b4d}dialog::backdrop{background:#07172b99;backdrop-filter:blur(3px)}dialog h2{font-size:22px}.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.enter{animation:appear .3s ease-out}@keyframes appear{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}mjx-container{max-width:100%}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;padding:4px 0}
+@media(max-width:820px){.intro{gap:25px;grid-template-columns:1fr}.math-art{display:none}.quiz-grid{grid-template-columns:1fr}.rail{grid-row:1;padding:15px 20px}.rail h3,.legend,.mode-note{display:none}.numbers{margin:12px 0 0;grid-template-columns:repeat(5,46px);gap:12px}.rail progress{display:block}.stats{grid-template-columns:repeat(3,1fr)}.top-label{display:none}.question-card{padding:23px}.setup{padding:24px}.testbar{padding:13px 16px}}
+@media(max-width:480px){.wrap{width:calc(100% - 24px)}main{padding-top:18px}.brand{gap:10px;min-height:78px}.brand strong,.brand small{font-size:11px}.mark{width:37px;height:37px}h1{font-size:32px}.facts{gap:8px}.fact{padding:10px 14px}.fact strong{font-size:23px}.testbar h2{font-size:13px}.person{font-size:11px}.timer{min-width:90px;padding:6px 9px}.timer strong{font-size:25px}.question-card{padding:20px 16px}.question-card legend{font-size:18px}.choice{padding:12px 10px;gap:9px}.choice .letter{width:26px;height:26px}.answer-mark{font-size:10px}.result-hero{flex-direction:column;align-items:flex-start;gap:22px;padding:24px}.score{width:122px;height:122px}.score strong{font-size:36px}.result-hero h1{font-size:25px}.stats{grid-template-columns:repeat(2,1fr);gap:9px}.stat:last-child{grid-column:1/-1}.resource{font-size:12px;flex-wrap:wrap}.resource button{min-height:40px}.review{padding:20px 16px}.dialog-actions{flex-wrap:wrap}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.question-figure{clear:both;margin:0 0 20px;padding:16px;border:1px solid var(--line);border-radius:14px;background:white;text-align:center}
+.question-figure img{display:block;max-width:100%;height:auto;margin:0 auto;object-fit:contain}
+.question-figure figcaption{font-size:11px;color:var(--muted);margin-top:8px}
+.question-after{clear:both;font-size:18px;font-weight:650;overflow-x:auto;margin-bottom:18px}
+.review .question-after{font-size:16px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap brand">
+  <div class="mark" aria-hidden="true"><svg width="27" height="27" viewBox="0 0 28 28" fill="none"><path d="M9 5H5v18h4M19 5h4v18h-4M11 10l6 8m0-8-6 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+  <div><strong id="school"></strong><small>Không gian kiểm tra &amp; luyện tập</small></div><span class="top-label">CHINH PHỤC TỪNG CÂU HỎI</span>
+</div></header>
+<main class="wrap">
+  <div id="resource" class="resource" role="status"><span class="dot" aria-hidden="true"></span><span id="resourceText">Đang tải thư viện hiển thị công thức…</span><button id="retryMath" hidden>Thử tải lại</button></div>
+  <div id="notice" class="toast" role="status" hidden></div>
+  <noscript><p class="toast">Vui lòng bật JavaScript trong trình duyệt để làm bài kiểm tra.</p></noscript>
+  <section id="startScreen" class="intro enter" aria-labelledby="startTitle">
+    <div>
+      <p class="eyebrow">BÀI KIỂM TRA TRẮC NGHIỆM</p><h1 id="startTitle"></h1>
+      <p class="lead">Đọc kỹ đề, lựa chọn đáp án và kiểm tra cách lập luận của mình sau mỗi lượt làm bài.</p>
+      <div class="facts"><div class="fact"><strong>05</strong><span>Câu hỏi</span></div><div class="fact"><strong>10</strong><span>Phút làm bài</span></div><div class="fact"><strong>10</strong><span>Điểm tối đa</span></div></div>
+      <div class="instructions"><h3>Trước khi bắt đầu</h3><ol>
+        <li>Mỗi câu chọn một đáp án. Có thể chuyển câu và sửa lựa chọn trước khi nộp ở chế độ kiểm tra.</li>
+        <li>Mỗi câu đúng được 2 điểm; câu sai hoặc bỏ trống được 0 điểm. Tổng điểm bằng số câu trả lời đúng nhân với 2, tối đa 10 điểm.</li>
+        <li>Hết 10 phút, bài được tự động nộp. Tải lại trang không làm bắt đầu lại thời gian.</li>
+        <li>Cần kết nối Internet để tải thư viện hiển thị công thức.</li>
+      </ol></div>
+      <p class="teacher"></p>
+      <div class="math-art" aria-hidden="true"><svg viewBox="0 0 520 96" fill="none"><path d="M110 15V80H270Z" stroke="#2563eb" stroke-width="2"/><path d="M110 67h13v13M237 80a30 30 0 0 1 4-15" stroke="#38bdf8" stroke-width="2"/><path d="M335 15V80H450Z" stroke="#97bce9" stroke-width="2"/><circle cx="110" cy="15" r="4" fill="#2563eb"/><circle cx="270" cy="80" r="4" fill="#38bdf8"/></svg></div>
+      <p class="subtle">Tiêu đề lấy từ tên tệp PDF. Tài liệu không ghi riêng môn học, khối lớp và không kèm đáp án.</p>
+    </div>
+    <form id="startForm" class="card setup">
+      <h2>Sẵn sàng làm bài?</h2><p class="subtle">Điền thông tin và chọn chế độ phù hợp.</p>
+      <div class="field"><label for="studentName">Họ và tên học sinh</label><input id="studentName" name="studentName" required maxlength="100" autocomplete="name" placeholder="Nhập họ và tên"></div>
+      <div class="field"><label for="studentClass">Lớp</label><input id="studentClass" name="studentClass" required maxlength="30" autocomplete="off" placeholder="Nhập lớp của em"></div>
+      <fieldset class="modes"><legend>Chế độ làm bài</legend>
+        <label class="mode"><input type="radio" name="mode" value="exam" checked><span><strong>Kiểm Tra Năng Lực</strong><small>Xem điểm và lời giải sau khi nộp bài.</small></span></label>
+        <label class="mode"><input type="radio" name="mode" value="practice"><span><strong>Luyện tập</strong><small>Phản hồi tức thì sau khi nhấn kiểm tra; câu đã kiểm tra sẽ được khóa.</small></span></label>
+      </fieldset>
+      <button id="startButton" class="primary wide" type="submit" disabled>Bắt đầu làm bài →</button>
+      <p class="privacy">Họ tên, lớp và lượt làm bài chỉ lưu trên thiết bị này, không được gửi ra ngoài. Trong luyện tập, lựa chọn ở lần xác nhận đầu tiên được dùng để chấm; các lựa chọn chưa xác nhận sẽ được chấm khi nộp hoặc hết giờ.</p>
+    </form>
+  </section>
+  <section id="quizScreen" hidden aria-label="Bài làm">
+    <div class="testbar"><div><h2 id="quizTitle"></h2><div id="studentInfo" class="person"></div></div><div id="timerBox" class="timer" role="timer" aria-label="Thời gian còn lại"><strong id="clock">10:00</strong><span id="clockLabel">THỜI GIAN CÒN LẠI</span></div></div>
+    <div class="quiz-grid">
+      <div><div id="questionPanels"></div><div class="q-actions"><button id="previous">← Câu trước</button><button id="next">Câu tiếp →</button></div></div>
+      <aside class="card rail" aria-label="Điều hướng câu hỏi"><h3>Tiến độ của em</h3>
+        <div class="progress-line"><span>Đã trả lời</span><strong id="progressText">0/5 câu</strong></div><progress id="progress" max="5" value="0" aria-label="Số câu đã trả lời"></progress>
+        <nav id="questionNav" class="numbers" aria-label="Chọn câu hỏi"></nav>
+        <div class="legend"><div><i class="fill"></i>Đã trả lời</div><div><i></i>Chưa trả lời</div><div><i class="outline"></i>Đang xem</div></div><div id="modeNote" class="mode-note"></div>
+      </aside>
+    </div>
+    <div class="submit-row"><button id="submitButton" class="primary">Nộp bài &amp; xem kết quả</button></div>
+  </section>
+  <section id="resultScreen" hidden aria-labelledby="resultTitle">
+    <div class="card result-hero enter"><div class="score"><strong id="scoreValue"></strong><span>/ 10 điểm</span></div><div><p class="eyebrow" id="resultMode"></p><h1 id="resultTitle" tabindex="-1">Em đã hoàn thành bài làm!</h1><p id="resultStudent"></p><p id="resultMessage"></p></div></div>
+    <div class="stats"><div class="stat"><strong id="correctCount" class="ok"></strong><span>Câu đúng</span></div><div class="stat"><strong id="wrongCount" class="bad"></strong><span>Câu sai</span></div><div class="stat"><strong id="blankCount"></strong><span>Chưa trả lời</span></div><div class="stat"><strong id="accuracy"></strong><span>Chính xác / 5 câu</span></div><div class="stat"><strong id="elapsed"></strong><span>Thời gian làm bài</span></div></div>
+    <div class="results-actions"><button id="solutionsButton">Xem lời giải</button><button id="restartButton" class="primary">Làm lại bài</button></div>
+    <p class="subtle">Đáp án và lời giải do ứng dụng biên soạn từ đề đã cung cấp; không phải lời giải trích từ PDF.</p><div id="reviewList"></div>
+  </section>
+</main>
+<footer class="wrap"><strong class="teacher"></strong><span>Học chắc từng bước · Hiểu rõ từng đáp án</span></footer>
+<dialog id="confirmDialog" aria-labelledby="dialogTitle" aria-describedby="dialogText"><h2 id="dialogTitle"></h2><p id="dialogText"></p><div class="dialog-actions"><button id="dialogCancel" autofocus>Quay lại</button><button id="dialogConfirm" class="primary">Xác nhận</button></div></dialog>
+<div id="liveMessage" class="sr-only" role="status" aria-live="polite"></div>
+<script>
+"use strict";
+// Cấu hình: thay tiêu đề, giáo viên và thời gian ở đây.
+const CONFIG=Object.freeze({title:"Hệ thức lượng trong tam giác vuông",teacher:"GV SOẠN-NGUYỄN VĂN CHÁNH-",school:"TRƯỜNG THCS NGUYỄN THỊ ĐỊNH_LONG HẢI",duration:600000,storageKey:"he-thuc-luong-5c-v1",version:1});
+const R=String.raw;
+// Dữ liệu đề: giữ nguyên thứ tự và phương án trong PDF.
+const QUESTIONS=[{"id":"q1","type":"single","weight":1,"text":"Cho hình vẽ dưới đây.","after":"Hệ thức nào sau đây đúng?","options":["\\(c=a\\cdot\\cot B\\).","\\(c=a\\cdot\\sin B\\).","\\(c=a\\cdot\\tan B\\).","\\(c=a\\cdot\\cos B\\)."],"correct":3,"solution":"Tam giác \\(ABC\\) vuông tại \\(A\\). Đối với góc \\(B\\), cạnh kề là \\(AB=c\\), cạnh đối là \\(AC=b\\), cạnh huyền là \\(BC=a\\). Do đó \\(\\cos B=\\frac{c}{a}\\), suy ra \\(c=a\\cdot\\cos B\\).","why":["\\(\\cot B=\\frac{c}{b}\\), nên hệ thức đúng dùng côtang là \\(c=b\\cdot\\cot B\\), không phải \\(c=a\\cdot\\cot B\\).","\\(\\sin B=\\frac{b}{a}\\), nên \\(a\\cdot\\sin B=b\\). Công thức này tính cạnh đối \\(b\\), không phải cạnh kề \\(c\\).","\\(\\tan B=\\frac{b}{c}\\); hệ thức với tang là \\(b=c\\cdot\\tan B\\). Biểu thức \\(c=a\\cdot\\tan B\\) không đúng tổng quát.","\\(\\cos B=\\frac{AB}{BC}=\\frac{c}{a}\\), nên nhân hai vế với \\(a\\) được \\(c=a\\cdot\\cos B\\)."],"image":"data:image/webp;base64,UklGRmoFAABXRUJQVlA4IF4FAACwIgCdASrEAGsAPjEYi0MiIaET66TcIAMEtLdwukjjn1F/5/lgvV7QG+rf278jfyd9mPwN2o/6v+QnDAZf4Efyr/H/mh/aedvvO/rl+Pf8r6Bf6r/mfYA/kf9a/3X9A/XL3mv6L7oPa/+P/3D/bfmj/aPsF/i38u/yn9r/c3/L////1fbd5qvsN/rGKuQCrd1qlEODSuOUiXp6m2vq9iNK/4QUSta7SMPpEvT3rkNaj/zfkqTWl1/e+VA87yHIiUiXk1wwVbh4N2Ylij557NjChl2weyPUWqiFUPXY6vYSN7zqCQB4NDMO/bd3N1N7YrV99UCtBqHo/0F+lw1uJKkENjjIRSHKYLH4obaEPvKkH0d1JoLlsdpQBsEjmvzgAP7/73FRvedyOpBoMqm/tNSx7Bkv/8QbT0CqBipZa40GBJo6xU0es0qtHTZhjMynSv09jUKcET/b9vCiG9sB1deG8d1K9zccwQn8Oi++KJHQ/Im3wWuYH4knYh689r/uf4PeL+1cpLWhTPq/avnSplIFudyPxDyAUnsswJ6k43Viwc9If+V6djXtV8YF5JIlfAN/BXBH4d3+xikBQ5NwQmhRt/FBwFlE0WHApn0kqN5ExfKyMXXrKOejceN2fvsSNEOsIY3Uz0+US/ZlidWY/vm40n/+FQfsK2c6TPY3d/p6Ta0FFPjVTcAcisp/vT3I6CvAbEFpKw6zEE6tkttx/wwIHeD9UD4cM28ZmIyX7hvLgif+Xyu1YyliYu917aYDaQ6QU89z9O5Gjb+/Q112uZBTHeUvj/DYECXMgOCE38bQIWvHb/6pccUtgd2jv89fowiL9LTUEoYNd9YOYPn/6ti8a+eI8D5CSbVIE11cIs5gYmbqu80bJgMKcF7M9mmqz0aFzhIc0vi7In6YFtBVIbVVTMbvyOniPOl3gIDW1f6CNt8jBS4YQN/RjFkfCsCoQW/4sJhS/NkhZhTs2oz6DmbxdkfSoqbfRCwh6DZs+tSCt60QUdjFTFv7IUeaGzZjHRUwPK/rqe75AN5zt1Tkdfgr25mP4e5f+xFk1GEoNWwutwKYz5HO1LFYwseV57ANNjn4U3fgr/GV4fqTXV+HQEnladJf9HtTvqW9CATdHYAWBtD/2s6QFj/KDCi0967ucJIu4ac66VpAL+G5FFz8er7PmoEQjK7Hf2hK9Q2vsUqnIJww83lHG5Npr5lxdePBbVCkVsrO1JzOxoXPjrEaTMqvnoRPz481kTVac4pD37MWC6W119+USZCs3SwIcY8EplO0y8ceyHuEv9/4OyB5QTWQwVMv+UHqvcYfcXyhVPgKJ9aqyDUjogvW8COGPt3eAzzZb73iSUAbdDjfpuKTBmUX3aCXyRV4XtCGlOujeg7dx/dYfbrSF6rASN8Rv3B6xGnQui0ylELBGy7Kk838PpvMir+KeWDSRVVlX7Ry1Rcz/rQJlriSaCFmwb8hr2asMvqsTKzk8HCEs2n3yO4rjCarPW5y3BlqXZA1CX8xLbbLIktgAAVvm3YWFZ1pCILhOAP/2MTWUv6uuwzdj+CdKetZ8U1A6xI5Nep+Yg3qcwujhSt1uC/U2++oWjrFQT1PdsuKWnWE9Qq8BUB110Sr2vCu7NQo2dgOxYLVQfgaUVwHv2Vc0O7uSTs1Jh3Dpdx7gzttjUenGAjeg5/6ScSlB9oDMnX+HkRzigv2Jj66Tr3IfxVOlZWavh9IEhdoX+7NgMOFrFXm83J5ww18K59WqKmAbW49WKQtLCxNlCEiG1xjyPpJQ75pxhAS/YO+1DK1DfT/swQ9v/yeDM7rZxOX4CmVw3vg9/6MFn2Wc3QAAAA=","imageAlt":"Hình trong đề: tam giác ABC vuông tại A; AB = c, AC = b, BC = a."},{"id":"q2","type":"single","weight":1,"text":"Cho hình vẽ dưới đây.","after":"Hệ thức nào sau đây đúng?","options":["\\(c=b\\cot B\\).","\\(b=a\\tan C\\).","\\(b=c\\tan C\\).","\\(c=a\\tan B\\)."],"correct":0,"solution":"Đối với góc \\(B\\), cạnh kề là \\(AB=c\\) và cạnh đối là \\(AC=b\\). Vì \\(\\cot B=\\frac{c}{b}\\), ta có \\(c=b\\cot B\\).","why":["Nhân \\(\\cot B=\\frac{c}{b}\\) với \\(b\\) được đúng hệ thức \\(c=b\\cot B\\).","\\(\\tan C=\\frac{c}{b}\\) là tỉ số hai cạnh góc vuông, không dùng cạnh huyền \\(a\\). Hệ thức đúng với cạnh \\(b\\) và cạnh huyền là \\(b=a\\cos C\\).","Với góc \\(C\\), \\(\\tan C=\\frac{c}{b}\\), nên \\(c=b\\tan C\\), hay \\(b=c\\cot C\\). Phương án đã dùng nhầm tang thay cho côtang.","\\(\\tan B=\\frac{b}{c}\\), không phải \\(\\frac{c}{a}\\). Muốn tính \\(c\\) từ \\(a\\) và góc \\(B\\), phải dùng \\(c=a\\cos B\\)."],"image":"data:image/webp;base64,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","imageAlt":"Hình trong đề: tam giác ABC vuông tại A; AB = c, AC = b, BC = a."},{"id":"q3","type":"single","weight":1,"text":"Cho tam giác \\(ABC\\) vuông tại \\(A\\) có \\(AC=10\\mathrm{cm}\\), \\(\\widehat{C}=30^\\circ\\). Độ dài cạnh \\(AB\\) bằng","options":["\\(\\frac{5\\sqrt{3}}{3}\\) (cm).","\\(\\frac{10\\sqrt{3}}{3}\\) (cm).","\\(5\\sqrt{3}\\) (cm).","\\(10\\sqrt{3}\\) (cm)."],"correct":1,"solution":"Đối với góc \\(C\\), \\(AB\\) là cạnh đối và \\(AC\\) là cạnh kề. Vì \\(\\tan C=\\frac{AB}{AC}\\), nên \\(AB=AC\\cdot\\tan30^\\circ=10\\cdot\\frac{\\sqrt{3}}{3}=\\frac{10\\sqrt{3}}{3}\\,\\mathrm{cm}\\).","why":["Giá trị này chỉ bằng một nửa kết quả đúng. Cạnh kề là \\(10\\,\\mathrm{cm}\\), nên phải nhân \\(\\frac{\\sqrt{3}}{3}\\) với \\(10\\), không phải \\(5\\).","Dùng đúng tỉ số \\(\\tan30^\\circ=\\frac{\\sqrt{3}}{3}\\) và đúng cạnh kề \\(AC=10\\,\\mathrm{cm}\\).","\\(5\\sqrt{3}=10\\cos30^\\circ\\). Cách tính này dùng nhầm côsin, trong khi hai cạnh đã biết và cần tìm là hai cạnh góc vuông.","\\(10\\sqrt{3}=10\\cot30^\\circ\\). Cách tính này đảo ngược tỉ số cạnh đối và cạnh kề; ở đây \\(AB=AC\\tan30^\\circ\\)."]},{"id":"q4","type":"single","weight":1,"text":"Tại một thời điểm trong ngày, các tia nắng mặt trời tạo với phương ngang một góc bằng \\(35^\\circ\\), khi đó cột \\(AH\\) có bóng trên mặt đất là đoạn \\(BH\\) dài \\(10{,}4\\,\\mathrm{m}\\).","after":"Trong các hệ thức sau, hệ thức nào là đúng?","options":["\\(AH=10{,}4\\cdot\\sin35^\\circ\\).","\\(AH=10{,}4\\cdot\\cos35^\\circ\\).","\\(AH=10{,}4\\cdot\\tan35^\\circ\\).","\\(AH=10{,}4\\cdot\\cot35^\\circ\\)."],"correct":2,"solution":"Tam giác \\(ABH\\) vuông tại \\(H\\), với \\(\\widehat{ABH}=35^\\circ\\). Đối với góc \\(B\\), cạnh đối là chiều cao \\(AH\\), cạnh kề là bóng \\(BH=10{,}4\\,\\mathrm{m}\\). Vì \\(\\tan35^\\circ=\\frac{AH}{BH}\\), suy ra \\(AH=10{,}4\\cdot\\tan35^\\circ\\).","why":["\\(\\sin35^\\circ=\\frac{AH}{AB}\\), nên phải nhân sin với cạnh huyền \\(AB\\). Số \\(10{,}4\\) là độ dài cạnh kề \\(BH\\), không phải cạnh huyền.","\\(\\cos35^\\circ=\\frac{BH}{AB}\\) liên hệ cạnh kề với cạnh huyền, không cho \\(AH=BH\\cos35^\\circ\\).","Đúng vì \\(\\tan35^\\circ=\\frac{AH}{BH}\\); chiều cao bằng độ dài bóng nhân với tang của góc nâng.","\\(\\cot35^\\circ=\\frac{BH}{AH}\\), nên \\(AH=\\frac{BH}{\\cot35^\\circ}\\). Phải chia cho côtang, không phải nhân."],"image":"data:image/webp;base64,UklGRloIAABXRUJQVlA4IE4IAACwMgCdASr+AMIAPj0ejUSiIaERKqzQIAPEtLdwuPCPcgfaBlHeQW+Wf452d/0j8aesJ9HeyPKoeX+tf2/+sfuB/VfavvB9TPqEfin8h/nX5ff0LhTM68wL1B+V/4n+sfkz5QH4ge8Pyze4B/Iv7L/k/yw/qXOb0A/5l/U/8/7Hv8j/vv7X+ZftE/MP8L/wfcF/kX9F/zf+A/dX/Q/////+T/0Ov15//4vuPCyqr+qZFtgi0KmGa/UgEWMcpLvJhhRZsT3kpQLKqv7IFlzQfF+yIrO2PxqAV25TCtDeKkHktAm2NMjInhCCN6cAxFoVMM1i5rM8G0T6fKKgVMM1+yBEHL/a+Sps4zF+yDyWgSGbS8KSrA+YDdV/ZBzYdsH9ugVY+XK1wHJaFR1jLMSdZoD+5VVz6hmvmQCKLLBCIU/FueKkCK28UlgQPLCz4HNSekhBgJb9ynq9aT/JZE1++4QFjAXm+YctQrTPlLRbhbfxlitCXqBWUzvw2A+bGgz/u8xfD8CPcZ955XybCc1IITRPRaTIybCyqr+yDyWhPgAA/v+pknkVrKNvT0e+5ed/wwqdXJFYKueVXdCG+Py2zSBV5GU0cgjD1VOsFQXZoT31WZMZOs0wCdZYU/lZ+kka7PStKecnYyYBYEtl8B2BO6rYZyRPW9nIqf5E9zv0Nf7N+TR2JRJxfyMN5++LeuvGeQdjruhOKwZSiGcIpovXKCARFqeB+7bMSicK4KBptSFfWMZqt3CAroc/6IT7Lrn/UhuZ/XPjKBh0SEqfKni4T+OmNKCG5UoIAsIj+5SXnT+IxkTliUplOyO1DIwUtmIKYcMsFJoQYucEFWFbP4POkHowBrW1IHS6j8fUes9VyW77jI4ox1r3g3SKeaFQXzpi3afQazbOz9hmBlX0qfmSsRX/5/4ocCw3ABID0YpzOBF82T+PTCMe5OanCMm7wPCp73MjRd6PeCVe8dZd8JgNe831wuwGCuO2Tko7LRtZ7HiEaYHeFDAM7wFKdcxHxrsEpnUtRvzjBVX/QrwCOyF/5BPkHM+dtzGZa6TRWNFuGC3oORbJ0ey5LTIihB4gAA5g9T0xjvx/jajxAXCUH8i2I9ILq82AmtADUtpFJOmNnqsDUnpE7J1vCIExYwUZTLQ/HBxozhnIQnVq5YtgukH2g5nVn1ADQqN8311aQjFeWoiZ3JJsKLsASnOjzf5Y8rrBj/Iuxj24AtlXqYKfBNeSqjxdsi496RL1cQCCiTm2skUXGwVURDBsARMpMGaUREONmX3R6aQhwnnAfiqTiA5igxUXkvOhcMmVHuJpzNqQjehAiJ/+FBUOWxN/w4+o+OSh4zOU18u81l+v+jxC3BO7U+38fyGX09zzPGtD56EfP0NYdCxtzCP3XMj15x72u3ouBtgVadikISeYeYA0MR5v+5+hH0HBP6BdtMMAT2uVSqW79BahFP+Va8lBxrCJZHkFXx0FQ+xOd6X9ovesHp+BZh07Hqal6Q++Is5Qjt+G8oAZN601Cr1kEsFIzn2PFpeMRe+/BiTiA+8eNHCXG52Cpj3p5+VfvealzLE0ebZQuYDy2Ey/548WlKlgHDdOH0UAA8OvU0P0WRtlBS+TDYOjwobS1S1tCFwCpATKTh/N6rB66xdieZFl7a5a5UiJs7xFPM66rMPSBtV0ZZr2/3tFPG+leENmFTVzssgn/lRUHjMQgttDShrgh3Kfg1ov3D1m03JR6FqLu662FxC/EQQZaKhkM6Bk7mERKEX8w2S4svNjV5fBSpbrNyHYsfNBTFONSbk2BM3cGW+/ZtIL/N7QoiDQcHW3Wtt8TyGiljaDrjpgklOaz99/RL8BG/yRbDd6zHWcah6T1MU8PjgMDW7/2z1unWe19Mr8kaogeZkX7Rhw/qLBeTClTeEX4hSlKfY4f6Uf1ZLukLNH/dT93MSWDkEFdSgRd4GQ/5TJR/DROMEA6188+OadHt+pSjyhnNpdwm7aLc5AOcdhDtEItDHtzCARMqUr0TshxQTGzg7pBFz7pdr2hxq/h/YwhQx79DiexnifVAT5NSgPpoZGKExyc88zCffr1HvVD5YFht8ub5ZJoIVYnTfLG9NKtxjnHop7bnHNDQaePKoIxjf9Wd7DCtrtyIt5Xho/hJyjv5yBBWpwa8sHyqeHgMIJ/IFWNKPqa+Q6X1TqCg4mX8djcYA6J4+iVJXRutoLhriaxQlwu78UU708Lm6Tx2utE1PlgDE51QkwebvIVVeDBhavUdX49YFM7VYbjOWXcy9vOl5odtHuvfG5/IU8+O9rc/P6ciDnad40mYAD4wRwQz0zHyDGiMaIcvqF33Tv1oaIpUjpeQcFrra/sY80EDmwixCDnMiyZyU8wgebfdyOdx2zxFu02GOeIyBg01pVd7Tmj2bdd+GGUUDxrSogP3CGqH9P4/rjXQtgNTaEF/zEHSB2N/+ySa8p2jZQx/pCgsIYU4dYoP+CyBuMbiqZkPAFovAcfL3J8QMn47Bej1qc8Y9/l4bB4JXtfF2uZbyGM8GixlI1/vNsGYtcLVWzpuNuCWDWBBS+gopHC6FWWzeqyhf3QdZj8T6B5go/eWamY1XJSjKUcA0VKqftz023r+m4IH6ava2LYHZTvB7wUK6rK5SRz/gBRW/SF3E38GcCTCy+9Gi8oLtLmj6PWzJMNm5FXxUDNA9N3gewtIg+68s6Z2gI/Nnu/xo32riCxoCA4p/KOrdHb6f3FxzK6wTFd/t4CZowdxroC/xECXVSrr5hYwNnLDqLPf/+8RwNer5ouFHGbyfk9hecfPmV+EPyRlvkNyZ5PsUmwAx842H8c+Ym3JC0AAAAAA==","imageAlt":"Hình trong đề: cột AH thẳng đứng, bóng BH dài 10,4 m; tam giác ABH vuông tại H, góc ABH bằng 35 độ."},{"id":"q5","type":"single","weight":1,"text":"Một khúc sông rộng khoảng \\(250\\,\\mathrm{m}\\). Một con đò chèo qua sông bị dòng nước đẩy xiên nên phải chèo khoảng \\(320\\,\\mathrm{m}\\) mới sang được bờ bên kia. Giả sử dòng nước đã đẩy con đò đi lệch một góc \\(\\alpha\\) (hình vẽ).","after":"Khi đó để tính giá trị của \\(\\alpha\\), cách đơn giản nhất là sử dụng tỉ số lượng giác nào của góc nhọn \\(\\alpha\\)?","options":["sin.","côsin.","tang.","côtang."],"correct":1,"solution":"Tam giác \\(ABC\\) vuông tại \\(A\\), góc lệch \\(\\alpha=\\widehat{ABC}\\). Cạnh kề góc \\(\\alpha\\) là \\(AB\\approx250\\,\\mathrm{m}\\), cạnh huyền là \\(BC\\approx320\\,\\mathrm{m}\\). Hai độ dài này đã biết nên dùng côsin là đơn giản nhất: \\(\\cos\\alpha=\\frac{AB}{BC}\\approx\\frac{250}{320}=\\frac{25}{32}\\).","why":["\\(\\sin\\alpha=\\frac{AC}{BC}\\) cần cạnh đối \\(AC\\), chưa được cho trực tiếp; phải tính thêm \\(AC\\) nên không phải cách đơn giản nhất.","\\(\\cos\\alpha=\\frac{AB}{BC}\\) dùng trực tiếp cạnh kề và cạnh huyền đã biết, không cần tìm thêm cạnh nào.","\\(\\tan\\alpha=\\frac{AC}{AB}\\) cần cạnh đối \\(AC\\), chưa biết; do đó cần thêm bước tính cạnh.","\\(\\cot\\alpha=\\frac{AB}{AC}\\) cũng cần \\(AC\\), chưa biết; không dùng trực tiếp được chỉ hai độ dài đã cho."],"image":"data:image/webp;base64,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","imageAlt":"Hình trong đề: hai bờ sông; tam giác ABC vuông tại A, AB dài 250 m, đường đi BC dài 320 m, góc lệch alpha ở B giữa BA và BC."}];
+// Trạng thái lượt làm bài: mốc kết thúc được lưu cùng các lựa chọn.
+const $=id=>document.getElementById(id), letters=["A","B","C","D"];
+const fresh=()=>({version:CONFIG.version,status:"idle",mode:"exam",name:"",className:"",answers:QUESTIONS.map(()=>-1),locked:QUESTIONS.map(()=>false),current:0,startedAt:0,endAt:0,submittedAt:0,reason:""});
+let state=fresh(), mathReady=false, mathInitialized=false, mathQueue=Promise.resolve(), timerId=null, dialogAction=null, warned=false;
+const cards=[],inputs=[],checks=[],navButtons=[];
+function node(tag,text,className){
+  const el=document.createElement(tag);
+  if(text!==undefined)el.textContent=text;
+  if(className)el.className=className;
+  return el;
+}
+function announce(text){$("liveMessage").textContent=text}
+function notify(text){$("notice").textContent=text;$("notice").hidden=false}
+function persist(){
+  try{localStorage.setItem(CONFIG.storageKey,JSON.stringify(state))}
+  catch{notify("Trình duyệt không cho lưu lượt làm bài. Vui lòng giữ trang mở để không mất bài khi tải lại.")}
+}
+function validState(s){
+  return s&&s.version===CONFIG.version&&["idle","running","submitted"].includes(s.status)&&
+    ["exam","practice"].includes(s.mode)&&typeof s.name==="string"&&s.name.length<=100&&
+    typeof s.className==="string"&&s.className.length<=30&&
+    Array.isArray(s.answers)&&s.answers.length===5&&s.answers.every(v=>Number.isInteger(v)&&v>=-1&&v<4)&&
+    Array.isArray(s.locked)&&s.locked.length===5&&s.locked.every((v,i)=>typeof v==="boolean"&&(!v||s.answers[i]>=0))&&
+    Number.isInteger(s.current)&&s.current>=0&&s.current<5&&
+    ["","manual","timeout"].includes(s.reason)&&
+    (s.status==="idle"||(Number.isFinite(s.startedAt)&&s.startedAt>0&&Number.isFinite(s.endAt)&&s.endAt-s.startedAt===CONFIG.duration))&&
+    (s.status!=="submitted"||(Number.isFinite(s.submittedAt)&&s.submittedAt>=s.startedAt&&s.submittedAt<=s.endAt));
+}
+function restore(){
+  try{
+    const raw=localStorage.getItem(CONFIG.storageKey);
+    if(!raw)return;
+    const saved=JSON.parse(raw);
+    if(validState(saved))state=saved;
+    else notify("Lượt lưu cũ không hợp lệ. Em có thể bắt đầu một lượt mới.");
+  }catch{notify("Không đọc được lượt lưu trên thiết bị. Em có thể bắt đầu lượt mới; hãy giữ trang mở khi làm bài.")}
+}
+function grade(answers){
+  let correct=0,wrong=0,blank=0;
+  QUESTIONS.forEach((q,i)=>{if(answers[i]===-1)blank++;else if(answers[i]===q.correct)correct++;else wrong++});
+  return {correct,wrong,blank,score:correct/QUESTIONS.length*10,accuracy:correct/QUESTIONS.length*100};
+}
+function timeText(ms){
+  const sec=Math.max(0,Math.ceil(ms/1000));
+  return String(Math.floor(sec/60)).padStart(2,"0")+":"+String(sec%60).padStart(2,"0");
+}
+function showScreen(id){["startScreen","quizScreen","resultScreen"].forEach(k=>$(k).hidden=k!==id)}
+function showMathError(){
+  mathReady=false;
+  $("resource").classList.add("error");
+  $("resourceText").textContent="Chưa hiển thị đầy đủ công thức hoặc hình minh họa. Kiểm tra kết nối Internet rồi nhấn “Thử tải lại”.";
+  $("retryMath").hidden=false;
+  $("startButton").disabled=true;
+  updateControls();
+}
+async function typeset(regions){
+  if(!mathInitialized)return;
+  const task=mathQueue.catch(()=>{}).then(()=>window.MathJax.typesetPromise(regions));
+  mathQueue=task;
+  try{
+    await task;
+    if(regions.some(el=>el.querySelector("mjx-merror")))throw new Error("Formula render error");
+  }catch(err){showMathError();throw err}
+}
+function queueMath(regions){void typeset(regions).catch(()=>{})}
+function clearRegion(el){
+  if(mathInitialized)window.MathJax.typesetClear([el]);
+  el.replaceChildren();
+}
+function feedback(q,choice){
+  const box=node("div",undefined,"feedback");
+  box.append(node("h3",choice===q.correct?"Đúng! Em đã chọn đáp án "+letters[q.correct]+".":choice===-1?"Câu này chưa được trả lời.":"Chưa đúng. Đáp án đúng là "+letters[q.correct]+".",choice===q.correct?"ok":"bad"));
+  box.append(node("p","Đáp án đúng: "+letters[q.correct]+". "+q.options[q.correct]));
+  box.append(node("p",q.solution));
+  const list=node("ul");
+  q.why.forEach((reason,i)=>{
+    const item=node("li");
+    item.append(node("strong",letters[i]+(i===q.correct?" — Đúng:":" — Sai:"),i===q.correct?"ok":"bad"),document.createTextNode(" "+reason));
+    list.append(item);
+  });
+  box.append(list,node("p","Lời giải do ứng dụng biên soạn từ nội dung đề.","origin"));
+  return box;
+}
+function appendFigure(parent,q){
+  if(q.image){
+    const figure=node("figure",undefined,"question-figure"),image=node("img");
+    image.src=q.image;image.alt=q.imageAlt;image.width=q.id==="q5"?240:320;
+    figure.append(image,node("figcaption","Hình minh họa trích từ đề gốc."));parent.append(figure);
+  }
+  if(q.after)parent.append(node("p",q.after,"question-after"));
+}
+async function waitForImages(){
+  await Promise.all([...document.querySelectorAll(".question-figure img")].map(image=>image.decode()));
+}
+function buildQuestions(){
+  clearRegion($("questionPanels"));$("questionNav").replaceChildren();
+  cards.length=inputs.length=checks.length=navButtons.length=0;
+  QUESTIONS.forEach((q,i)=>{
+    const card=node("article",undefined,"card question-card");
+    card.hidden=i!==state.current;
+    card.id="panel-"+q.id;
+    const meta=node("div",undefined,"question-meta");
+    meta.append(node("span","CÂU "+(i+1)+" / "+QUESTIONS.length),node("span","2 ĐIỂM"));
+    const field=node("fieldset"),legend=node("legend","Câu "+(i+1)+". "+q.text),choices=node("div",undefined,"choices");
+    legend.id="title-"+q.id;legend.tabIndex=-1;
+    field.append(legend);appendFigure(field,q);field.append(choices);
+    inputs[i]=[];
+    q.options.forEach((option,j)=>{
+      const label=node("label",undefined,"choice"),input=node("input");
+      input.type="radio";input.name=q.id;input.value=String(j);
+      input.addEventListener("change",()=>selectAnswer(i,j));
+      label.append(input,node("span",letters[j],"letter"),node("span",option,"choice-text"));
+      choices.append(label);inputs[i].push(input);
+    });
+    const check=node("button","Kiểm tra đáp án","practice-check primary");
+    check.type="button";check.addEventListener("click",()=>confirmPractice(i));
+    card.append(meta,field,check);
+    if(state.mode==="practice"&&state.locked[i])card.append(feedback(q,state.answers[i]));
+    $("questionPanels").append(card);cards.push(card);checks.push(check);
+    const nav=node("button",String(i+1));nav.type="button";
+    nav.addEventListener("click",()=>goTo(i));
+    $("questionNav").append(nav);navButtons.push(nav);
+  });
+  updateControls();
+}
+function updateControls(){
+  const answered=state.answers.filter(a=>a>=0).length;
+  $("progressText").textContent=answered+"/"+QUESTIONS.length+" câu";$("progress").value=answered;
+  QUESTIONS.forEach((q,i)=>{
+    if(!cards[i])return;
+    cards[i].hidden=i!==state.current;
+    const reveal=state.mode==="practice"&&state.locked[i];
+    inputs[i].forEach((input,j)=>{
+      input.checked=state.answers[i]===j;
+      input.disabled=state.status!=="running"||!mathReady||reveal;
+      const label=input.parentElement;
+      label.classList.toggle("correct",reveal&&j===q.correct);
+      label.classList.toggle("wrong",reveal&&j===state.answers[i]&&j!==q.correct);
+      let mark=label.querySelector(".answer-mark");
+      const markText=reveal?(j===q.correct?"Đáp án đúng":j===state.answers[i]?"Đã chọn sai":""):"";
+      if(markText&&!mark){mark=node("span",undefined,"answer-mark");label.append(mark)}
+      if(mark){mark.textContent=markText;mark.hidden=!markText}
+    });
+    checks[i].hidden=state.mode!=="practice";
+    checks[i].disabled=state.status!=="running"||!mathReady||state.answers[i]===-1||state.locked[i];
+    checks[i].textContent=state.locked[i]?"Đã kiểm tra · Đã khóa":"Kiểm tra đáp án";
+    navButtons[i].classList.toggle("answered",state.answers[i]>=0);
+    navButtons[i].classList.toggle("current",state.current===i);
+    navButtons[i].setAttribute("aria-label","Câu "+(i+1)+(state.answers[i]>=0?", đã trả lời":", chưa trả lời")+(state.locked[i]?", đã khóa":""));
+    if(state.current===i)navButtons[i].setAttribute("aria-current","step");else navButtons[i].removeAttribute("aria-current");
+  });
+  $("previous").disabled=state.current===0||state.status!=="running";
+  $("next").disabled=state.current===QUESTIONS.length-1||state.status!=="running";
+  $("submitButton").disabled=state.status!=="running";
+}
+// Kiểm tra thời hạn ngay trong mọi thao tác ghi nhận đáp án.
+function canAnswer(){
+  if(state.status!=="running")return false;
+  if(Date.now()>=state.endAt){submit("timeout");return false}
+  return mathReady;
+}
+function selectAnswer(i,j){
+  if(!canAnswer()||state.locked[i]){updateControls();return}
+  state.answers[i]=j;persist();updateControls();
+}
+function goTo(i){
+  if(!canAnswer()||i<0||i>=QUESTIONS.length)return;
+  state.current=i;persist();updateControls();
+  $("title-"+QUESTIONS[i].id).focus({preventScroll:true});
+}
+function confirmPractice(i){
+  if(!canAnswer()||state.mode!=="practice"||state.locked[i]||state.answers[i]===-1)return;
+  state.locked[i]=true;persist();updateControls();
+  const box=feedback(QUESTIONS[i],state.answers[i]);cards[i].append(box);queueMath([box]);
+  announce("Câu "+(i+1)+(state.answers[i]===QUESTIONS[i].correct?": đúng.":": sai. Đáp án đúng là "+letters[QUESTIONS[i].correct]+"."));
+}
+function tick(){
+  if(state.status!=="running")return;
+  const remaining=Math.max(0,state.endAt-Date.now());
+  $("clock").textContent=timeText(remaining);
+  $("timerBox").classList.toggle("warning",remaining<60000);
+  $("clockLabel").textContent=remaining<60000?"SẮP HẾT GIỜ":"THỜI GIAN CÒN LẠI";
+  if(remaining<60000&&!warned){warned=true;announce("Còn dưới một phút. Bài sẽ tự động nộp khi hết giờ.")}
+  if(!remaining)submit("timeout");
+}
+function startTimer(){
+  clearInterval(timerId);tick();
+  if(state.status==="running")timerId=setInterval(tick,250);
+}
+function renderQuiz(){
+  showScreen("quizScreen");
+  $("studentInfo").textContent=state.name+" · Lớp "+state.className+" · "+(state.mode==="exam"?"Kiểm tra năng lực":"Luyện tập");
+  $("modeNote").textContent=state.mode==="exam"?"Kiểm tra năng lực: đáp án và lời giải chỉ xuất hiện sau khi nộp bài.":"Luyện tập: nhấn “Kiểm tra đáp án” để xem phản hồi. Câu đã xác nhận sẽ được khóa trong lượt này.";
+  updateControls();
+}
+function start(event){
+  event.preventDefault();
+  if(state.status!=="idle"||!mathReady)return;
+  const name=$("studentName").value.trim(),className=$("studentClass").value.trim();
+  if(!name||!className){notify("Vui lòng nhập đầy đủ họ tên và lớp.");(!name?$("studentName"):$("studentClass")).focus();return}
+  state=fresh();state.name=name;state.className=className;
+  state.mode=document.querySelector('input[name="mode"]:checked').value;
+  state.status="running";state.startedAt=Date.now();state.endAt=state.startedAt+CONFIG.duration;
+  warned=false;persist();renderQuiz();startTimer();
+  $("title-q1").focus({preventScroll:true});announce("Đã bắt đầu. Em có 10 phút để làm bài.");
+}
+function closeDialog(){
+  if($("confirmDialog").open)$("confirmDialog").close();
+  dialogAction=null;
+}
+function openDialog(title,text,label,action){
+  $("dialogTitle").textContent=title;$("dialogText").textContent=text;$("dialogConfirm").textContent=label;dialogAction=action;
+  $("confirmDialog").showModal();
+}
+function requestSubmit(){
+  if(state.status!=="running")return;
+  if(Date.now()>=state.endAt){submit("timeout");return}
+  const blank=state.answers.filter(a=>a===-1).length;
+  openDialog("Nộp bài kiểm tra?",blank?"Em còn "+blank+" câu chưa trả lời. Những câu này được 0 điểm. Đồng hồ vẫn tiếp tục chạy. Em có muốn nộp bài?":"Em đã trả lời đủ 5 câu. Xác nhận nộp để xem điểm và lời giải.","Nộp bài",()=>submit("manual"));
+}
+function submit(reason){
+  if(state.status!=="running")return;
+  const now=Date.now();
+  state.reason=now>=state.endAt?"timeout":reason;
+  state.submittedAt=Math.min(state.endAt,Math.max(state.startedAt,now));
+  state.status="submitted";clearInterval(timerId);timerId=null;closeDialog();persist();updateControls();
+  if(state.reason==="timeout")$("clock").textContent="00:00";
+  renderResult();announce(state.reason==="timeout"?"Đã hết giờ. Bài đã được tự động nộp.":"Đã nộp bài.");
+  $("resultTitle").focus({preventScroll:true});
+  window.scrollTo({top:0,behavior:"instant"});
+}
+function renderResult(){
+  const g=grade(state.answers);
+  $("scoreValue").textContent=g.score.toFixed(2).replace(".",",");
+  $("correctCount").textContent=g.correct;$("wrongCount").textContent=g.wrong;$("blankCount").textContent=g.blank;
+  $("accuracy").textContent=g.accuracy.toFixed(0)+"%";$("elapsed").textContent=timeText(state.submittedAt-state.startedAt);
+  $("resultMode").textContent=state.mode==="exam"?"KẾT QUẢ KIỂM TRA NĂNG LỰC":"KẾT QUẢ LUYỆN TẬP";
+  $("resultStudent").textContent=state.name+" · Lớp "+state.className;
+  $("resultMessage").textContent=state.reason==="timeout"?"Hết thời gian 10 phút. Bài đã được tự động nộp.":"Bài làm đã được nộp. Hãy xem lại lời giải để củng cố kiến thức.";
+  clearRegion($("reviewList"));
+  QUESTIONS.forEach((q,i)=>{
+    const a=state.answers[i],correct=a===q.correct;
+    const card=node("article",undefined,"card review");
+    card.append(node("span",a===-1?"Chưa trả lời · 0 điểm":correct?"Đúng · 2 điểm":"Sai · 0 điểm","status-pill "+(correct?"ok":a===-1?"":"bad")));
+    card.append(node("h3","Câu "+(i+1)+". "+q.text));
+    appendFigure(card,q);
+    card.append(node("p","Em chọn: "+(a===-1?"Chưa trả lời":letters[a]+". "+q.options[a]),"answer-line"));
+    card.append(node("p","Đáp án đúng: "+letters[q.correct]+". "+q.options[q.correct],"answer-line ok"));
+    const details=node("details");
+    details.append(node("summary","Xem lời giải và phân tích A, B, C, D"),feedback(q,a));card.append(details);$("reviewList").append(card);
+  });
+  $("solutionsButton").textContent="Xem lời giải";showScreen("resultScreen");queueMath([$("reviewList")]);
+}
+function restart(){
+  const name=state.name,className=state.className;
+  state=fresh();warned=false;persist();clearInterval(timerId);closeDialog();
+  buildQuestions();clearRegion($("reviewList"));showScreen("startScreen");
+  $("studentName").value=name;$("studentClass").value=className;
+  document.querySelector('input[name="mode"][value="exam"]').checked=true;
+  $("clock").textContent="10:00";$("scoreValue").textContent="";$("timerBox").classList.remove("warning");
+  $("clockLabel").textContent="THỜI GIAN CÒN LẠI";
+  mathReady=false;$("startButton").disabled=true;
+  void typeset([$("questionPanels")]).then(waitForImages).then(()=>{if(mathInitialized){mathReady=true;$("startButton").disabled=false;updateControls()}}).catch(showMathError);
+  window.scrollTo({top:0,behavior:"instant"});$("studentName").focus({preventScroll:true});
+}
+async function loadMath(){
+  // MathJax 3.2.2: cấu hình trước khi tải; không chạy typeset mỗi giây.
+  window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],packages:["base","ams"]},svg:{fontCache:"local"},options:{enableMenu:false},startup:{typeset:false}};
+  const script=node("script");script.src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js";script.async=true;
+  let watchdog=setTimeout(showMathError,20000);
+  script.onerror=()=>{clearTimeout(watchdog);showMathError()};
+  script.onload=async()=>{
+    try{
+      await window.MathJax.startup.promise;mathInitialized=true;
+      await typeset([$("questionPanels"),$("reviewList")]);
+      await waitForImages();
+      clearTimeout(watchdog);mathReady=true;
+      $("resource").classList.remove("error");
+      $("resourceText").textContent="Công thức và hình minh họa đã sẵn sàng. Chúc em làm bài tốt!";
+      $("retryMath").hidden=true;$("startButton").disabled=state.status!=="idle";updateControls();tick();
+    }catch{clearTimeout(watchdog);showMathError()}
+  };
+  document.head.append(script);
+}
+function init(){
+  $("school").textContent=CONFIG.school;$("startTitle").textContent=$("quizTitle").textContent=CONFIG.title;
+  document.querySelectorAll(".teacher").forEach(el=>el.textContent="Giáo viên biên soạn: "+CONFIG.teacher);
+  restore();buildQuestions();
+  if(state.status==="running"){renderQuiz();startTimer()}
+  else if(state.status==="submitted")renderResult();
+  $("startForm").addEventListener("submit",start);
+  $("previous").addEventListener("click",()=>goTo(state.current-1));
+  $("next").addEventListener("click",()=>goTo(state.current+1));
+  $("submitButton").addEventListener("click",requestSubmit);
+  $("dialogCancel").addEventListener("click",closeDialog);
+  $("confirmDialog").addEventListener("cancel",()=>{dialogAction=null});
+  $("dialogConfirm").addEventListener("click",()=>{const action=dialogAction;closeDialog();if(action)action()});
+  $("restartButton").addEventListener("click",()=>openDialog("Làm lại bài?","Kết quả và lựa chọn của lượt hiện tại sẽ được xóa. Lượt mới có đủ 10 phút và em có thể chọn lại chế độ.","Làm lại bài",restart));
+  $("solutionsButton").addEventListener("click",()=>{
+    const details=[...$("reviewList").querySelectorAll("details")],open=details.some(el=>!el.open);
+    details.forEach(el=>el.open=open);$("solutionsButton").textContent=open?"Thu gọn lời giải":"Xem lời giải";
+  });
+  $("retryMath").addEventListener("click",()=>location.reload());
+  document.addEventListener("visibilitychange",tick);window.addEventListener("focus",tick);window.addEventListener("pageshow",tick);
+  void loadMath();
+}
+init();
+</script>
+</body>
+</html>
